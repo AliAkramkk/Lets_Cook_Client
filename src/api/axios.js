@@ -3,7 +3,7 @@ import axios from 'axios';
 import { auth } from '../context/authReducer';
 import { useSelector } from 'react-redux';
 
-const BASE_URL = 'http://localhost:3000';
+const BASE_URL = 'https://letscook.aliakram.shop';
 
 export default axios.create({
   baseURL: BASE_URL
