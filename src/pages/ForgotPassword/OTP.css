@@ -1,0 +1,99 @@
+/* OTP.css */
+
+.otp-container {
+  text-align: center;
+  margin-top: 100px;
+}
+
+h1 {
+  font-size: 24px;
+  margin-bottom: 20px;
+  color: #333;
+}
+
+.otp-input {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.otp-digit {
+  width: 50px;
+  height: 50px;
+  font-size: 24px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  margin: 0 10px;
+  text-align: center;
+  outline: none;
+  transition: all 0.3s ease;
+}
+
+.otp-digit:focus {
+  border-color: #007bff;
+  box-shadow: 0 0 5px #007bff;
+}
+
+.submit-button {
+  margin-top: 20px;
+  padding: 10px 20px;
+  font-size: 18px;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.submit-button:hover {
+  background-color: #0056b3;
+}
+
+/* Animation for input */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.otp-digit {
+  animation: fadeIn 0.3s ease forwards;
+}
+
+/* Matching text quotes */
+.matching-text {
+  font-size: 16px;
+  color: #333;
+  margin-top: 20px;
+}
+
+/* Animation for matching text */
+@keyframes slideInUp {
+  from {
+    opacity: 0;
+    transform: translateY(50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.matching-text {
+  animation: slideInUp 0.5s ease forwards;
+}
+
+.submit-button:hover {
+  background-color: #45a049;
+}
+
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+-webkit-appearance: none;
+}

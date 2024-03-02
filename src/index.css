@@ -1,0 +1,19 @@
+/* Resetting default styles */
+body, html {
+  margin: 0;
+  padding: 0;
+}
+
+/* Applying box-sizing globally */
+html {
+  box-sizing: border-box;
+}
+
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
