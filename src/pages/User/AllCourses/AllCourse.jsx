@@ -92,7 +92,7 @@ const AllCourse = () => {
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
             className="bg-transparent border h-14 me-8  items-center p-1 md:p-4  md:mt-2 shadow-lg rounded-lg flex  justify-center"
           >
-            <Hamburger size={20} direction="right" />
+            {/* <Hamburger size={20} direction="right" /> */}
           </button>
           <div className="bg-[#e4f7f1] border h-14 me-8 w-full md:p-4 p-2 mb-2 md:mt-2 shadow-lg rounded-lg flex justify-between sm:me-10 m-0">
             <input
