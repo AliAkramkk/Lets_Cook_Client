@@ -31,7 +31,7 @@ const HomeCard = () => {
 
   return (
     <>
-      <div className="bg-gray-100 rounded-lg shadow dark:bg-gray-900 m-4">
+      <div className="bg-gray-100 rounded-lg shadow  m-4">
         <div className="flex ">
           <form
             action=""
