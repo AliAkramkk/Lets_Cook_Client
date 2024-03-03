@@ -4,6 +4,7 @@ import "sweetalert2/dist/sweetalert2.css";
 import { useFormik } from "formik";
 import { signupValidation } from "../signupValidation";
 import { useNavigate } from "react-router-dom";
+import axios from "../../api/axios";
 import { axiosPrivate } from "../../api/axios";
 import backgroundImage from "../../../public/signup.jpg";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
@@ -31,11 +32,14 @@ function Signup() {
       onSubmit: async (values) => {
         try {
           // Axios request with proper headers and data
-          const response = await axiosPrivate.post("/signup", values, {
-            headers: {
-              Authorization: `Bearer YOUR_ACCESS_TOKEN`,
-            },
-          });
+          const response = await axios.post(
+            "https://letscook.aliakram.shop/signup",
+            values,
+            {
+              headers: { "Content-Type": "application/json" },
+              withCredentials: true,
+            }
+          );
           // Handle different scenarios based on the response
           if (
             response.data.errors &&
