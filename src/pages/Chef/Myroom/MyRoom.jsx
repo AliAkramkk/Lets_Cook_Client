@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 import { axiosPrivate } from "../../../api/axios";
 import { selectCurrentToken } from "../../../context/authReducer";
 import { useSelector } from "react-redux";
-
+import ChefNavbar from "../../../component/Navbar/ChefNavbar";
 const MyRoom = () => {
   const [roomCode, setRoomCode] = useState("");
   const navigate = useNavigate();
@@ -11,7 +11,7 @@ const MyRoom = () => {
 
   const handleFormSubmit = async (e) => {
     e.preventDefault();
-    const liveStream = `http://localhost:5173/user/live-room/${roomCode}`;
+    const liveStream = `https://lets-cook-client.vercel.app/user/live-room/${roomCode}`;
     console.log("token", token);
     console.log("live " + liveStream);
     try {
@@ -26,8 +26,6 @@ const MyRoom = () => {
         }
       );
 
-      // Replace 'placeholderRoomCode' with the actual variable or value you intend to use
-
       navigate(`/chef/room/${roomCode}`);
     } catch (error) {
       // Handle errors, e.g., log them or show a user-friendly message
@@ -37,6 +35,7 @@ const MyRoom = () => {
 
   return (
     <>
+      <ChefNavbar />
       <div className="flex justify-center bg-slate-400">
         <form onSubmit={handleFormSubmit} className="form">
           <div>

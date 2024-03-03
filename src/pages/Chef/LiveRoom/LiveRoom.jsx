@@ -50,7 +50,7 @@ const LiveRoom = () => {
       sharedLinks: [
         {
           name: "copy link",
-          url: `http://localhost:5173/chef/live/${roomCode}`,
+          url: `https://lets-cook-client.vercel.app/chef/live/${roomCode}`,
         },
       ],
     });
