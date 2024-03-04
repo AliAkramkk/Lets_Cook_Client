@@ -1,7 +1,11 @@
 import * as Yup from "yup";
 
 export const signupValidation = Yup.object({
-  username: Yup.string().min(3).required("please enter name"),
+  username: Yup.string()
+    .min(1, "Please enter a valid username")
+    .trim()
+    .matches(/^\S*$/, "Username cannot contain spaces") // Custom rule
+    .required("Please enter a proper username "),
   email: Yup.string()
     .email("please enter valid email")
     .required("Please Enter Email"),
