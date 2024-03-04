@@ -21,7 +21,7 @@ const AdminTable = () => {
   const TABLE_HEAD = [
     "NO",
     "Date",
-    "Transaction ID",
+
     "Student",
     "Courses",
     "Chef Name",
@@ -113,7 +113,7 @@ const AdminTable = () => {
           <tr key={_id}>
             <td className={classes}>{index + 1}</td>
             <td className={classes}>{new Date(date).toLocaleDateString()}</td>
-            <td className={classes}>{_id}</td>
+            {/* <td className={classes}>{_id}</td> */}
             <td className={classes}>{user_id?.username || "N/A"}</td>
             <td className={classes}>{course_id && course_id.title}</td>
             <td className={classes}>{chef_id.username}</td>
