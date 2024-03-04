@@ -106,7 +106,12 @@ const OTP = () => {
         "/verifyotp",
         { OTP, user },
         {
-          headers: { "Content-Type": "application/json" },
+          headers: {
+            "Content-Type": "application/json",
+            "Access-Control-Allow-Origin":
+              "https://lets-cook-client.vercel.app",
+            "Access-Control-Allow-Credentials": true,
+          },
           withCredentials: true,
         }
       )
