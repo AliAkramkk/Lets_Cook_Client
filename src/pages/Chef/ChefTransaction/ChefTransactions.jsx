@@ -9,6 +9,7 @@ import ChefNavbar from "../../../component/Navbar/ChefNavbar";
 const ChefTransactions = () => {
   const token = useSelector(selectCurrentToken);
   const user = useSelector(auth);
+  console.log("user", user);
   const [paymentData, setPaymentData] = useState(null);
 
   const [pageCount, setPageCount] = useState(1);
