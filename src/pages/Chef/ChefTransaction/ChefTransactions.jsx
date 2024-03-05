@@ -9,9 +9,9 @@ import ChefNavbar from "../../../component/Navbar/ChefNavbar";
 const ChefTransactions = () => {
   const token = useSelector(selectCurrentToken);
   const user = useSelector(auth);
-  console.log("user", user);
+  console.log("user", user.id);
   const [paymentData, setPaymentData] = useState(null);
-
+  const [message, setMessage] = useState("");
   const [pageCount, setPageCount] = useState(1);
   const currentPage = useRef();
 
@@ -33,9 +33,15 @@ const ChefTransactions = () => {
           }
         );
         // console.log("response", response);
-        setPaymentData(response?.data?.results?.payments);
-        setPageCount(response?.data?.results?.pageCount);
-        currentPage.current = response?.data?.results?.page;
+        if (response?.data?.message) {
+          // If a message is present in the response, set it in the state
+          setMessage(response.data.message);
+        } else {
+          // If no message, set the payment data and other relevant information
+          setPaymentData(response?.data?.results?.payments);
+          setPageCount(response?.data?.results?.pageCount);
+          currentPage.current = response?.data?.results?.page;
+        }
       } catch (error) {
         console.log(error.message);
       }
@@ -50,49 +56,53 @@ const ChefTransactions = () => {
       </div>
 
       <div className="h-auto relative overflow-x-auto px-5 py-3">
-        <table className="w-full text-sm text-left rtl:text-right text-gray-500">
-          <thead className="text-xs text-gray-100 uppercase bg-gray-700 ">
-            <tr>
-              <th scope="col" className="px-6 py-3 capitalize">
-                Date
-              </th>
-              <th scope="col" className="px-6 py-3 capitalize">
-                Transaction Id
-              </th>
-              <th scope="col" className="px-6 py-3 capitalize">
-                Course
-              </th>
-              <th scope="col" className="px-6 py-3 capitalize">
-                Students
-              </th>
-              <th scope="col" className="px-6 py-3 capitalize">
-                price
-              </th>
-              {/* <th scope="col" className="px-6 py-3 capitalize">
+        {message ? (
+          // Render the message if present
+          <div className="text-red-500 font-bold">{message}</div>
+        ) : (
+          <table className="w-full text-sm text-left rtl:text-right text-gray-500">
+            <thead className="text-xs text-gray-100 uppercase bg-gray-700 ">
+              <tr>
+                <th scope="col" className="px-6 py-3 capitalize">
+                  Date
+                </th>
+                <th scope="col" className="px-6 py-3 capitalize">
+                  Transaction Id
+                </th>
+                <th scope="col" className="px-6 py-3 capitalize">
+                  Course
+                </th>
+                <th scope="col" className="px-6 py-3 capitalize">
+                  Students
+                </th>
+                <th scope="col" className="px-6 py-3 capitalize">
+                  price
+                </th>
+                {/* <th scope="col" className="px-6 py-3 capitalize">
             Action
           </th> */}
-            </tr>
-          </thead>
-          <tbody>
-            {paymentData?.map((payment, index) => (
-              <tr
-                key={index}
-                className=" border-b bg-gray-800 dark:border-gray-700 text-white"
-              >
-                <td className="px-6 py-4">
-                  {new Date(payment?.date).toLocaleDateString("en-US", {
-                    year: "numeric",
-                    month: "2-digit",
-                    day: "2-digit",
-                  })}
-                </td>
-                <td className="px-6 py-4">
-                  {(payment?.strip_id).substring(0, 12)}
-                </td>
-                <td className="px-6 py-4">{payment?.course_id?.title}</td>
-                <td className="px-6 py-4">{payment?.user_id?.username}</td>
-                <td className="px-6 py-4">{payment?.amount}</td>
-                {/* <td className="px-6 py-4">
+              </tr>
+            </thead>
+            <tbody>
+              {paymentData?.map((payment, index) => (
+                <tr
+                  key={index}
+                  className=" border-b bg-gray-800 dark:border-gray-700 text-white"
+                >
+                  <td className="px-6 py-4">
+                    {new Date(payment?.date).toLocaleDateString("en-US", {
+                      year: "numeric",
+                      month: "2-digit",
+                      day: "2-digit",
+                    })}
+                  </td>
+                  <td className="px-6 py-4">
+                    {(payment?.strip_id).substring(0, 12)}
+                  </td>
+                  <td className="px-6 py-4">{payment?.course_id?.title}</td>
+                  <td className="px-6 py-4">{payment?.user_id?.username}</td>
+                  <td className="px-6 py-4">{payment?.amount}</td>
+                  {/* <td className="px-6 py-4">
               {payment?.isTeacherPay ? (
                 <Button disabled={true} color="red">
                   Paid
@@ -101,10 +111,11 @@ const ChefTransactions = () => {
                 <Button onClick={() => openModal(payment?._id)}>Pay</Button>
               )}
             </td> */}
-              </tr>
-            ))}
-          </tbody>
-        </table>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        )}
       </div>
       <div className="w-full flex justify-center py-5">
         <ReactPaginate
