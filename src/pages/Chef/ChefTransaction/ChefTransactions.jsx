@@ -2,12 +2,13 @@ import React from "react";
 import { Fragment, useEffect, useRef, useState } from "react";
 import ReactPaginate from "react-paginate";
 import { useSelector } from "react-redux";
-import { selectCurrentToken } from "../../../context/authReducer";
+import { selectCurrentToken, auth } from "../../../context/authReducer";
 import { axiosPrivate } from "../../../api/axios";
 import ChefNavbar from "../../../component/Navbar/ChefNavbar";
 
 const ChefTransactions = () => {
   const token = useSelector(selectCurrentToken);
+  const user = useSelector(auth);
   const [paymentData, setPaymentData] = useState(null);
 
   const [pageCount, setPageCount] = useState(1);
@@ -22,7 +23,7 @@ const ChefTransactions = () => {
     const fetchPaymentData = async () => {
       try {
         const response = await axiosPrivate.get(
-          `/chef/paymentData?page=${currentPage.current}`,
+          `/chef/paymentData?page=${currentPage.current}&chefId=${user.id}`,
           {
             headers: {
               Authorization: `Bearer ${token}`,
@@ -30,7 +31,7 @@ const ChefTransactions = () => {
             withCredentials: true,
           }
         );
-        console.log("response", response);
+        // console.log("response", response);
         setPaymentData(response?.data?.results?.payments);
         setPageCount(response?.data?.results?.pageCount);
         currentPage.current = response?.data?.results?.page;
