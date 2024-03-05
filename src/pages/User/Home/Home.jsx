@@ -142,7 +142,7 @@ const Home = () => {
         <HomeCard />
 
         <h4 className="text-xl font-bold text-gray-800 mb-4 mt-4 text-center">
-          Verity of Category to Excel
+          Variety of Category to Excel
         </h4>
         <div className="grid p-4 grid-cols-1 lg:grid-cols-4 md:grid-cols-2 gap-6 z-10 relative bg-gray-100 ">
           {categories.map((category, index) => (
