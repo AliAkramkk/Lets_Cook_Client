@@ -32,12 +32,10 @@ const ChefTransactions = () => {
             withCredentials: true,
           }
         );
-        // console.log("response", response);
+        console.log("response", response);
         if (response?.data?.message) {
-          // If a message is present in the response, set it in the state
           setMessage(response.data.message);
         } else {
-          // If no message, set the payment data and other relevant information
           setPaymentData(response?.data?.results?.payments);
           setPageCount(response?.data?.results?.pageCount);
           currentPage.current = response?.data?.results?.page;
