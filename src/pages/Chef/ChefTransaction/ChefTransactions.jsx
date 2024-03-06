@@ -32,7 +32,7 @@ const ChefTransactions = () => {
             withCredentials: true,
           }
         );
-        console.log("response", response.data.message);
+        console.log("response", response.data);
         if (response?.data?.message) {
           setMessage(response.data.message);
           setPaymentData(null);
