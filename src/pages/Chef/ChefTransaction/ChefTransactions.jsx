@@ -34,7 +34,7 @@ const ChefTransactions = () => {
         );
         console.log("response", response.data);
         if (response?.data?.message) {
-          setMessage(response.data.message);
+          setMessage(response?.data?.message);
           setPaymentData(null);
         } else {
           setPaymentData(response?.data?.results?.payments);
