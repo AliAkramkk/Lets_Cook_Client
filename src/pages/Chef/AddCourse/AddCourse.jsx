@@ -23,13 +23,25 @@ const AddCourse = () => {
   const token = useSelector(selectCurrentToken);
 
   const validationSchema = Yup.object().shape({
-    title: Yup.string().required("Course Name is required"),
-    blurb: Yup.string().required("Blurb is required"),
-    description: Yup.string().required("Description is required"),
-    aboutChef: Yup.string().required("About Chef is required"),
+    title: Yup.string()
+      .trim()
+      .required("Course Name is required")
+      .matches(/^\S.*$/, "Course Name cannot be only spaces"),
+    blurb: Yup.string()
+      .trim()
+      .required("Blurb is required")
+      .matches(/^\S.*$/, "Course Name cannot be only spaces"),
+    description: Yup.string()
+      .trim()
+      .required("Description is required")
+      .matches(/^\S.*$/, "Course Name cannot be only spaces"),
+    aboutChef: Yup.string()
+      .trim()
+      .required("About Chef is required")
+      .matches(/^\S.*$/, "Course Name cannot be only spaces"),
     price: Yup.number()
       .required("Price is required")
-      .min(0, "Price must be a non-negative number"),
+      .min(1, "Price must be a non-negative number"),
     coverImage: Yup.mixed()
       .required("Cover Image is required")
       .test(
