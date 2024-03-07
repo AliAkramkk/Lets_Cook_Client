@@ -104,7 +104,7 @@ function ForgetPassword() {
                 <p className="text-center">
                   Not registered yet?{" "}
                   <a
-                    href="#"
+                    href="/signup"
                     className="text-indigo-600 font-medium inline-flex space-x-1 items-center"
                   >
                     <span>Press Login </span>
