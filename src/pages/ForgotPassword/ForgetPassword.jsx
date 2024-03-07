@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import UserNavbar from "../../component/Navbar/UserNavbar";
 import toast, { Toaster } from "react-hot-toast";
-import { axiosPrivate } from "../../api/axios";
+import axios, { axiosPrivate } from "../../api/axios";
 import { useNavigate } from "react-router-dom";
 
 function ForgetPassword() {
@@ -13,9 +13,9 @@ function ForgetPassword() {
 
   const handleResetPassword = async (e) => {
     e.preventDefault();
-   
+
     try {
-      const response = await axiosPrivate.post("/forgotPassword", { email });
+      const response = await axios.post("/forgotPassword", { email });
       if (response.status === 201) {
         toast.success(response.data.message);
         navigate("/forgot-otp");
