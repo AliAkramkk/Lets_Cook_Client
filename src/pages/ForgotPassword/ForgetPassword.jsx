@@ -107,7 +107,7 @@ function ForgetPassword() {
                     href="/signup"
                     className="text-indigo-600 font-medium inline-flex space-x-1 items-center"
                   >
-                    <span>Press Login </span>
+                    <span>SignUp Now </span>
                     <span>
                       <svg
                         xmlns="http://www.w3.org/2000/svg"
