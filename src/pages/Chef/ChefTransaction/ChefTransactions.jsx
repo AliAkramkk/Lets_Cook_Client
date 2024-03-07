@@ -48,7 +48,7 @@ const ChefTransactions = () => {
     fetchPaymentData();
   }, []);
   return (
-    <div className="h-screen w-screen overflow-x-hidden">
+    <div className="h-screen w-screen overflow-x-hidden bg-gray-100 ">
       <ChefNavbar />
       <div className="h-auto text-2xl text-black px-5 py-3 font-bold capitalize">
         Recent Transactions
@@ -60,7 +60,7 @@ const ChefTransactions = () => {
           <div className="text-red-500 font-bold">{message}</div>
         ) : (
           <table className="w-full text-sm text-left rtl:text-right text-gray-500">
-            <thead className="text-xs text-gray-100 uppercase bg-gray-700 ">
+            <thead className="text-xs text-black uppercase bg-gray-300 ">
               <tr>
                 <th scope="col" className="px-6 py-3 capitalize">
                   Date
