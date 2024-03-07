@@ -86,7 +86,7 @@ const ChefTransactions = () => {
               {paymentData?.map((payment, index) => (
                 <tr
                   key={index}
-                  className=" border-b bg-gray-800 dark:border-gray-700 text-white"
+                  className=" border-b bg-gray-300 dark:border-gray-700 text-black"
                 >
                   <td className="px-6 py-4">
                     {new Date(payment?.date).toLocaleDateString("en-US", {
