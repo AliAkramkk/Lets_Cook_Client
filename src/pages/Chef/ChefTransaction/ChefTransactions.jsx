@@ -120,7 +120,7 @@ const ChefTransactions = () => {
         <ReactPaginate
           nextLabel=">"
           onPageChange={handlePageClick}
-          pageRangeDisplayed={2}
+          pageRangeDisplayed={1}
           marginPagesDisplayed={0}
           pageCount={pageCount}
           // initialPage={currentPage.current}
