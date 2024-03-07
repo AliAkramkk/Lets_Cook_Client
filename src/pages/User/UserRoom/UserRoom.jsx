@@ -1,6 +1,7 @@
 import React from "react";
 import { useParams } from "react-router-dom";
 import { ZegoUIKitPrebuilt } from "@zegocloud/zego-uikit-prebuilt";
+import UserNavbar from "../../../component/Navbar/UserNavbar";
 
 const UserRoom = () => {
   const { roomCode } = useParams();
@@ -52,6 +53,7 @@ const UserRoom = () => {
   };
   return (
     <>
+      <UserNavbar />
       <div className=" bg-gray-100 ">
         <div className="mt-10 mb-10">
           <div ref={myMeeting} />
