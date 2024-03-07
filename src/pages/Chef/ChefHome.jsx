@@ -85,7 +85,7 @@ function ChefHome() {
         </div>
         {courses.length > 0 ? (
           <>
-            <div className="flex flex-wrap justify-center">
+            <div className="flex flex-wrap justify-center transition duration-300 ease-in-out transform hover:scale-105">
               <Card
                 icon={totalstd}
                 title="Total Students"
