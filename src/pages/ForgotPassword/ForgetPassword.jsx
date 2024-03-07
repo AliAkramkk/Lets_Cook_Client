@@ -8,14 +8,29 @@ import letsCookLogo from "../../assets/Lets cook/log1.png";
 
 function ForgetPassword() {
   const [email, setEmail] = useState("");
+  const [emailError, setEmailError] = useState("");
   const navigate = useNavigate();
+
   const handleEmailChange = (e) => {
-    setEmail(e.target.value);
+    const enteredEmail = e.target.value;
+    setEmail(enteredEmail);
+
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    const isValidEmail = emailRegex.test(enteredEmail);
+
+    if (!isValidEmail) {
+      setEmailError("Please enter a valid email address");
+    } else {
+      setEmailError("");
+    }
   };
 
   const handleResetPassword = async (e) => {
     e.preventDefault();
-
+    if (!email || emailError) {
+      toast.error("Please enter a valid email address");
+      return;
+    }
     try {
       const response = await axios.post("/forgotPassword", { email });
       if (response.status === 201) {
@@ -58,9 +73,14 @@ function ForgetPassword() {
                     type="email"
                     value={email}
                     onChange={handleEmailChange}
-                    className="w-full py-3 border border-slate-200 rounded-lg px-3 focus:outline-none focus:border-slate-500 hover:shadow"
+                    className={`w-full py-3 border ${
+                      emailError ? "border-red-500" : "border-slate-200"
+                    } rounded-lg px-3 focus:outline-none focus:border-slate-500 hover:shadow`}
                     placeholder="Enter email address"
                   />
+                  {emailError && (
+                    <p className="text-red-500 text-sm mt-2">{emailError}</p>
+                  )}
                 </label>
 
                 <button
