@@ -30,7 +30,7 @@ function ForgetPassword() {
   };
   return (
     <>
-      <div className="bg-gray-200">
+      <div className="bg-gray-100">
         <UserNavbar />
         <div className="p-3 text-white flex flex-col md:flex-row items-center md:items-start">
           <img
@@ -39,7 +39,7 @@ function ForgetPassword() {
             className="mb-4 max-w-xs md:mr-6 md:mb-0"
           />
         </div>
-        <div className="max-w-lg mx-auto my-10 bg-white p-8 rounded-xl shadow shadow-slate-300">
+        <div className="max-w-lg mx-auto my-10 bg-gray-200 p-8 rounded-xl shadow shadow-slate-300">
           <h1 className="text-4xl font-medium">Reset password</h1>
           <p className="text-slate-500">
             Fill up the form to reset the password
