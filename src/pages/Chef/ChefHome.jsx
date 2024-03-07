@@ -87,7 +87,7 @@ function ChefHome() {
           <>
             <div className="flex flex-wrap justify-center">
               <Card
-                className=" transition duration-300 ease-in-out transform hover:scale-105"
+                className="transition duration-300 ease-in-out transform hover:scale-105"
                 icon={totalstd}
                 title="Total Students"
                 value={details?.studentsCount}
