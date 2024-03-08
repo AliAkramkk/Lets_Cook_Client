@@ -82,13 +82,13 @@ const Home = () => {
   // ......blog slider settings......
 
   const settings = {
-    dots: true,
+    // dots: true,
     infinite: true,
-    speed: 300,
+    speed: 2000,
     slidesToShow: 3,
     slidesToScroll: 1,
     autoplay: true,
-    autoplaySpeed: 300,
+    autoplaySpeed: 4000,
     responsive: [
       {
         breakpoint: 1024,
