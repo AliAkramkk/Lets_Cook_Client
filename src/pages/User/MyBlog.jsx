@@ -151,6 +151,7 @@ const MyBlog = () => {
   const toggleDescription = () => {
     setShowFullDescription(!showFullDescription);
   };
+  const truncatedDescription = blogs?.description?.slice(0, 100);
   const handleEditBlog = () => {
     if (editValues.title === "" || editValues.description === "") {
       toastHelper.showToast("Fill the Form");
