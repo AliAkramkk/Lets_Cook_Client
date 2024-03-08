@@ -41,7 +41,7 @@ const MyBlog = () => {
   const [pageCount, setPageCount] = useState(1);
   const currentPage = useRef();
   const token = useSelector(selectCurrentToken);
-
+  const [showFullDescription, setShowFullDescription] = useState(false);
   const showDeleteAlert = async (onDelete) => {
     const result = await Swal.fire({
       title: "Are you sure?",
@@ -148,6 +148,9 @@ const MyBlog = () => {
     closeModal();
   };
 
+  const toggleDescription = () => {
+    setShowFullDescription(!showFullDescription);
+  };
   const handleEditBlog = () => {
     if (editValues.title === "" || editValues.description === "") {
       toastHelper.showToast("Fill the Form");
@@ -317,7 +320,29 @@ const MyBlog = () => {
                         </h5>
                       </Link>
                       <p className="font-normal text-gray-700 mb-3">
-                        {blog.description}
+                        {/* {blog.description} */}
+                        {showFullDescription
+                          ? blog?.description
+                          : truncatedDescription}
+                        {!showFullDescription &&
+                          truncatedDescription?.length >= 20 && (
+                            <span
+                              className="text-blue-500 cursor-pointer"
+                              onClick={toggleDescription}
+                            >
+                              {" "}
+                              Read More
+                            </span>
+                          )}
+                        {showFullDescription && (
+                          <span
+                            className="text-blue-500 cursor-pointer"
+                            onClick={toggleDescription}
+                          >
+                            {" "}
+                            Read Less
+                          </span>
+                        )}
                       </p>
 
                       <button
