@@ -196,14 +196,14 @@ const BlogDetails = () => {
             <div className="font-extrabold text-lg">
               Comments({allComments?.length})
             </div>
-            <div>
-              {/* <Textarea
+            {/* <div> */}
+            {/* <Textarea
                 label=""
                 name="comment"
                 value={comment}
                 onChange={(e) => setComment(e.target.value)}
               /> */}
-              <textarea
+            {/* <textarea
                 name="comment"
                 value={comment}
                 onChange={(e) => setComment(e.target.value)}
@@ -219,7 +219,7 @@ const BlogDetails = () => {
               <Button size="sm" onClick={handleCommentSubmit}>
                 Submit
               </Button>
-            </div>
+            </div> */}
             <div className="py-2 flex flex-col gap-2">
               {allComments &&
                 allComments.map((oneComment) => (
