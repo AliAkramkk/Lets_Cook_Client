@@ -11,7 +11,8 @@ const Homelottie = () => {
         rendererSettings={{
           preserveAspectRatio: "xMidYMid slice",
         }}
-        style={{ width: "300px", height: "300px" }}
+        className=""
+        // style={{ width: "600px", height: "600px" }}
       />
     </div>
   );

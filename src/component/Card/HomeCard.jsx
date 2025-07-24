@@ -65,15 +65,16 @@ const HomeCard = () => {
                 Culinary Journey Starts Here!
               </span>
             </h1>
+            <p className="font-thin w-3/4">Join our e-learning cooking channel and learn delicious recipes step-by-step, from everyday meals to special dishes. Whether you’re a beginner or looking to sharpen your skills, our easy-to-follow videos will help you cook with confidence and creativity</p>
             <button
-              className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-md mt-6 "
+              className="bg-black hover:bg-white hover:text-black hover:border border-black text-white font-mono py-2 px-4 rounded-md mt-6 "
               onClick={handleCourse}
             >
               EXPLORE COURSE
             </button>
           </div>
           <Homelottie
-            style={{ width: "300px", height: "200px" }} // Set a fixed height
+            style={{ width: "600px", height: "600px" }} // Set a fixed height
           />
         </div>
       </div>

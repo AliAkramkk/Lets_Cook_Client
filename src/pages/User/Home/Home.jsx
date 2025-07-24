@@ -14,6 +14,13 @@ import "../../../component/Navbar/UserNavbarStyle.css";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
+import cb from "../../../assets/Lets cook/cb.jpeg"
+import hoverCb  from "../../../assets/Lets cook/cb making.jpeg"
+import cake from "../../../assets/Lets cook/cake.jpeg"
+import hovercake from "../../../assets/Lets cook/hovercake.jpeg"
+import butterchicken from "../../../assets/Lets cook/butterchicken.jpeg"
+import fc from "../../../assets/Lets cook/fc.jpeg"
+
 import BlogCard from "../../../component/User/BlogCard";
 import TestimonialCard from "../../../component/Card/Reviewcard";
 import Reviewcard from "../../../component/Card/Reviewcard";
@@ -112,18 +119,7 @@ const Home = () => {
 
   const truncatedDescription = blogs?.description?.slice(0, 100);
 
-  const cardStyle = {
-    background:
-      "linear-gradient(to right, rgb(220, 220, 226), rgb(200, 223, 200))",
-  };
-  const cardStyle1 = {
-    background:
-      "linear-gradient(to right, rgb(235, 245, 255), rgb(255, 235, 235), rgb(255, 255, 225))",
-  };
-  const cardStyle2 = {
-    background:
-      "linear-gradient(to right, hsl(210, 60%, 95%), hsl(0, 60%, 95%), hsl(60, 100%, 95%))",
-  };
+ 
   const cardStyle3 = {
     background:
       "linear-gradient(to right, hsl(210, 60%, 95%), hsl(0, 60%, 95%), hsl(60, 100%, 95%))",
@@ -141,10 +137,10 @@ const Home = () => {
 
         <HomeCard />
 
-        <h4 className="text-xl font-bold text-gray-800 mb-4 mt-4 text-center">
+        <h4 className="text-xl font-mono text-gray-800 mb-4 mt-4 text-center">
           Variety of Category to Excel
         </h4>
-        <div className="grid p-4 grid-cols-1 lg:grid-cols-4 md:grid-cols-2 gap-6 z-10 relative bg-gray-100 ">
+        {/* <div className="grid p-4 grid-cols-1 lg:grid-cols-4 md:grid-cols-2 gap-6 z-10 relative bg-gray-100 ">
           {categories.map((category, index) => (
             <motion.div
               key={index}
@@ -162,6 +158,30 @@ const Home = () => {
               <h3 className="text-xl font-semibold mb-2 ">{category.name}</h3>
             </motion.div>
           ))}
+        </div> */}
+        <div className="flex md:flex-row flex-row-2 m-8 items-center justify-center gap-6 ">
+          <div className="relative rounded-3xl overflow-hidden w-24 h-24 md:w-64 md:h-56 mx-auto mb-2 hover:scale-105 transition-transform border hover:border-amber-300 group">
+               <img src={cb} alt="Biriyani" className=" group-hover:opacity-0" />
+    <img src={hoverCb} alt="Biriyani Hover" className="object-cover  absolute top-0 left-0 transition-opacity duration-500 opacity-0 group-hover:opacity-100" />
+            <h1 className="font-thin text-center p-3">Malabar Chicken Biriyani</h1>
+          </div>
+          <div className="relative rounded-3xl overflow-hidden w-24 h-24 md:w-64 md:h-56 mx-auto mb-2 hover:scale-105 transition-transform border hover:border-amber-300 group">
+            <img src={cake} alt="" className="object-cover"/>
+             <img src={hovercake} alt="Biriyani Hover" className="object-cover  absolute top-0 left-0 transition-opacity duration-500 opacity-0 group-hover:opacity-100" />
+            <h1 className="font-thin text-center p-3">Home Made Cake</h1>
+          </div>
+          <div className="rounded-3xl overflow-hidden w-24 h-24 md:w-64 md:h-56 mx-auto mb-2 hover:scale-105 transition-transform border hover:border-amber-300">
+            <img src={butterchicken} alt="" className="object-cover"/>
+            <h1 className="font-thin text-center p-3">Butter Chicken</h1>
+          </div>
+          <div className="rounded-3xl overflow-hidden w-24 h-24 md:w-64 md:h-56 mx-auto mb-2 hover:scale-105 transition-transform border hover:border-amber-300">
+            <img src={fc} alt="" className="object-cover"/>
+            <h1 className="font-thin text-center p-3">Fried Chicke</h1>
+          </div>
+          {/* <div className="rounded-3xl overflow-hidden w-24 h-24 md:w-64 md:h-56 mx-auto mb-2 hover:scale-105 transition-transform border hover:border-amber-300">
+            <img src={cb} alt="" className="object-cover"/>
+            <h1 className="font-thin text-center p-3">Malabar Chicken Biriyani</h1>
+          </div> */}
         </div>
         {/* <Slider {...settings}> */}
         <div
@@ -170,12 +190,12 @@ const Home = () => {
         >
           <div className="w-full max-w-screen-xl mx-auto p-4 md:py-8">
             <div className="sm:flex sm:items-center sm:justify-between">
-              <h1 className="text-2xl font-bold text-gray-800 mb-4 mt-2">
+              <h1 className="text-2xl font-mono text-gray-800 mb-4 mt-2">
                 Experience the Live video
                 <br />
                 Call with the Chef
                 <br />
-                <span className="text-xs text-gray-700 ml-4 ">
+                <span className="text-xs font-light text-gray-700 ml-4 ">
                   "OUR PLATFORM FACILITATES DIRECT COMMUNICATION BETWEEN USERS
                   AND TUTORS.COLLOBORATE,CONNECT <br />
                   AND SHOW CASE YOUR SKILLS WITH ENGAGE TO DO CAREER AND
@@ -186,7 +206,7 @@ const Home = () => {
               <img
                 src={myImage}
                 alt="Your Image"
-                className="w-64 h-48  transition duration-300 ease-in-out transform hover:scale-105"
+                className="w-80 h-72  transition duration-300 ease-in-out transform hover:scale-105"
               />
             </div>
             {/* <button
@@ -201,7 +221,7 @@ const Home = () => {
         <h4 className="text-xl font-bold text-gray-800 mb-4 mt-4 text-center">
           Popular Blogs
         </h4>
-        <Slider {...settings}>
+        {/* <Slider {...settings}>
           {blogs && blogs.length !== 0 ? (
             blogs.map((blog) => (
               <div key={blog._id} className="flex justify-center">
@@ -241,7 +261,7 @@ const Home = () => {
                     >
                       Blog Details
                     </button> */}
-                  </div>
+                  {/* </div>
                 </div>
               </div>
             ))
@@ -252,7 +272,30 @@ const Home = () => {
               </div>
             </div>
           )}
-        </Slider>
+        </Slider> */} 
+
+         {/* <div className="flex md:flex-row m-8 items-center justify-center gap-6 ">
+          <div className="rounded-3xl overflow-hidden w-24 h-24 md:w-64 md:h-56 mx-auto mb-2 hover:scale-105 transition-transform border hover:border-amber-300">
+            <img src={cb} alt="" className="object-cover"/>
+            <h1 className="font-thin">Malabar Chicken Biriyani</h1>
+          </div>
+          <div className="rounded-3xl overflow-hidden w-24 h-24 md:w-64 md:h-56 mx-auto mb-2 hover:scale-105 transition-transform border hover:border-amber-300">
+            <img src={cb} alt="" className="object-cover"/>
+            <h1 className="font-thin">Malabar Chicken Biriyani</h1>
+          </div>
+          <div className="rounded-3xl overflow-hidden w-24 h-24 md:w-64 md:h-56 mx-auto mb-2 hover:scale-105 transition-transform border hover:border-amber-300">
+            <img src={cb} alt="" className="object-cover"/>
+            <h1 className="font-thin">Malabar Chicken Biriyani</h1>
+          </div>
+          <div className="rounded-3xl overflow-hidden w-24 h-24 md:w-64 md:h-56 mx-auto mb-2 hover:scale-105 transition-transform border hover:border-amber-300">
+            <img src={cb} alt="" className="object-cover"/>
+            <h1 className="font-thin">Malabar Chicken Biriyani</h1>
+          </div>
+          <div className="rounded-3xl overflow-hidden w-24 h-24 md:w-64 md:h-56 mx-auto mb-2 hover:scale-105 transition-transform border hover:border-amber-300">
+            <img src={cb} alt="" className="object-cover"/>
+            <h1 className="font-thin">Malabar Chicken Biriyani</h1>
+          </div>
+        </div> */}
         {/* <div className="m-5 flex justify-center">
           {Array.isArray(reviews) && reviews.length > 0 ? (
             reviews.map((review) => (
