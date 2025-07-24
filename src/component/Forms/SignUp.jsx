@@ -33,7 +33,7 @@ function Signup() {
         try {
           // Axios request with proper headers and data
           const response = await axios.post(
-            "https://letscook.aliakram.shop/signup",
+            "http://localhost:5000/signup",
             values,
             {
               headers: { "Content-Type": "application/json" },
